@@ -12,7 +12,7 @@ g_compts[4,4] := a(t)^2*sin(chi)^2*sin(theta)^2:#dphi^2
 g := create ([-1,-1], eval(g_compts));
 ginv := invert(g, 'detg'):
 
-D1g := d1metric( g, coord ): #Take first and second derivatives of metric tensor to find the Einstein tensor
+D1g := d1metric( g, coord ): #Take first and second derivatives of metric tensor to find the Einstein tensor.
 D2g := d2metric( d1g, coord):
 Cf1 := Christoffel1 ( D1g ):
 RMN := Reimann( ginv, D2g, Cf1):
@@ -20,11 +20,21 @@ RICCI := Ricci( ginv, RMN ):
 RS := Ricciscalar( ginv, RICCI ):
 G := Einstein( g, RICCI, RS );
 
-T_compts := array(symmetric,sparse,1..4,1..4): # Define Energy Momentum tensor
+T_compts := array(symmetric,sparse,1..4,1..4): # Define Energy Momentum tensor.
 T_compts[1,1] := rho(t):
 T_compts[2,2] := a(t)^2*p(t):
 T_compts[3,3] := a(t)^2*sin(chi)^2*p(t):
 T_compts[4,4] := a(t)^2*sin(chi)^2*sin(theta)^2*p(t):
 T := create([-1,-1], eval(T_compts));
+
+get_compts(G): # Use [1,1] component of Einstein tensor and use Energy Momentum tensor to find first Friedmann equation.
+%[1,1]:
+e1 := simplify(%):
+get_compts(g):
+%[1,1]:
+%
+
+
+
 
 
