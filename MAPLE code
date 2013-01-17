@@ -12,4 +12,19 @@ g_compts[4,4] := a(t)^2*sin(chi)^2*sin(theta)^2:#dphi^2
 g := create ([-1,-1], eval(g_compts));
 ginv := invert(g, 'detg'):
 
-#the rest is coming shortly
+D1g := d1metric( g, coord ): #Take first and second derivatives of metric tensor to find the Einstein tensor
+D2g := d2metric( d1g, coord):
+Cf1 := Christoffel1 ( D1g ):
+RMN := Reimann( ginv, D2g, Cf1):
+RICCI := Ricci( ginv, RMN ):
+RS := Ricciscalar( ginv, RICCI ):
+G := Einstein( g, RICCI, RS );
+
+T_compts := array(symmetric,sparse,1..4,1..4): # Define Energy Momentum tensor
+T_compts[1,1] := rho(t):
+T_compts[2,2] := a(t)^2*p(t):
+T_compts[3,3] := a(t)^2*sin(chi)^2*p(t):
+T_compts[4,4] := a(t)^2*sin(chi)^2*sin(theta)^2*p(t):
+T := create([-1,-1], eval(T_compts));
+
+
