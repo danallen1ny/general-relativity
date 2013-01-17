@@ -1,0 +1,6 @@
+restart;
+with(tensor);
+with(linalg);
+with(difforms);
+
+#Define the metric tensor g[mu,nu].
