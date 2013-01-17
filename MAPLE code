@@ -46,6 +46,10 @@ get_compts(T):
 e3 := simplify(%):
 E[2] := expand (e1/a(t)^2) = -8*pi*expand(e3/a(t)^2) + expand(e2*Lambda/a(t)^2);
 
+expand(simplify(E[2]-E[1])/2); # Simplify second Friedmann equatino to isolate deleration parameter q(t).
+
+basic_1 := (diff(a(t),t)/
+
 
 
 
