@@ -32,7 +32,19 @@ get_compts(G): # Use [1,1] component of Einstein tensor and use Energy Momentum 
 e1 := simplify(%):
 get_compts(g):
 %[1,1]:
-%
+e2 := simplify(%):
+E[1] := expand(e1/(-3)) = -8*pi*expand(e3/(-3)) + expand(e2*Lambda/(-3));
+
+get_compts(G): # Use the [2,2] component of Einstein tensor and Energy Momentum tensor to find second Friedmann equation.
+%[2,2]:
+e1 := simplify(%):
+get_compts(g):
+%[2,2]:
+e2 = simplify(%):
+get_compts(T):
+%[2,2]:
+e3 := simplify(%):
+E[2] := expand (e1/a(t)^2) = -8*pi*expand(e3/a(t)^2) + expand(e2*Lambda/a(t)^2);
 
 
 
