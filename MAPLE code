@@ -3,4 +3,13 @@ with(tensor);
 with(linalg);
 with(difforms);
 
-#Define the metric tensor g[mu,nu].
+coord := [t, chi, theta, phi]: #Define the metric tensor g[mu,nu].
+g_compts := array(symmetric,sparse,1..4,1..4):
+g_compts[1,1] := -1:#dt^2
+g_comps[2,2] := a(t)^2:#chi^2
+g_compts[3,3] := a(t)^2*sin(chi)^2:#dtheta^2
+g_compts[4,4] := a(t)^2*sin(chi)^2*sin(theta)^2:#dphi^2
+g := create ([-1,-1], eval(g_compts));
+ginv := invert(g, 'detg'):
+
+#the rest is coming shortly
