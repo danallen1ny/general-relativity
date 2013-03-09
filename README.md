@@ -3,7 +3,7 @@ general-relativity
 
 undergrad physics thesis
 
-this is MAPLE code. i add a bulk viscosity term to the pressure of the diagonalized Energy Momentum Tensor. The viscous pressure has the for p(t) - 3*nu*H(t) where nu, the bulk viscosity, is a positive constant.
+this is MAPLE code. i add a bulk viscosity term to the pressure of the diagonalized Energy Momentum Tensor. The viscous pressure has the form p(t) - 3*nu*H(t) where nu, the bulk viscosity, is a positive constant.
 
 The MAPLE code derives the first and second Friedmann equeations for the viscous model.
 
